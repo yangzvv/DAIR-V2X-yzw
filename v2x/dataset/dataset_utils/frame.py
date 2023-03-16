@@ -153,7 +153,6 @@ class VICFrame(Frame):
         trans = Coord_transformation(from_coord, to_coord, self.path, infra_name, veh_name)
         return trans
 
-
 class VehFrameV2(Frame):
     def __init__(self, path, veh_dict, tmp_key="tmps", delta_x=0, delta_y=0):
         super().__init__(path, veh_dict)

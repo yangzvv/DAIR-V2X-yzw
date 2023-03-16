@@ -14,8 +14,10 @@ we open source the OpenDAIRV2X, towards serving VICAD research community.
 ![image](resources/deployment-visual.png)
 
 ## News
-* [2022.11] 🔥 We are running the first [VIC3D Object Detection challenge](https://aistudio.baidu.com/aistudio/competition/detail/522/0/introduction). 
-* [2022.07] We release the OpenDAIRV2X codebase v1.0.0.
+* [2022.03] Our new dataset "V2X-Seq: A Large-Scale Sequential Dataset for Vehicle-Infrastructure Cooperative Perception and Forecasting" has been accepted by CVPR2023. Congratulations! We will release the dataset sooner.
+* [2022.03] We have supported feature fusion method [FFNET](https://github.com/haibao-yu/FFNet-VIC3D).
+* [2022.11] We have held the first [VIC3D Object Detection challenge](https://aistudio.baidu.com/aistudio/competition/detail/522/0/introduction). 
+* [2022.07] We have released the OpenDAIRV2X codebase v1.0.0.
   The current version can faciliate the researchers to use the DAIR-V2X dataset and reproduce the benchmarks.
 * [2022.03] Our Paper "DAIR-V2X: A Large-Scale Dataset for Vehicle-Infrastructure Cooperative 3D Object Detection" has been accepted by CVPR2022.
   Arxiv version could be seen [here](https://arxiv.org/abs/2204.05575).
@@ -40,7 +42,7 @@ we open source the OpenDAIRV2X, towards serving VICAD research community.
   It will directly support different fusion methods including early fusion/feature fusion/late fusion.
   Now it supports early fusion and late fusion.
 - [x] Early Fusion
-- [ ] Feature Fusion
+- [x] Early Fusion
 - [x] Late Fusion
   
 - **Support multi-modality/single-modality detectors for VIC3D**
@@ -114,12 +116,23 @@ This project is not possible without the following codebases.
 If you find this project useful in your research, please consider cite:
 
 ```
-@inproceedings{yu2022dairv2x,
-    title={DAIR-V2X: A Large-Scale Dataset for Vehicle-Infrastructure Cooperative 3D Object Detection},
-    author={Yu, Haibao and Luo, Yizhen and Shu, Mao and Huo, Yiyi and Yang, Zebang and Shi, Yifeng and Guo, Zhenglong and Li, Hanyu and Hu, Xing and Yuan, Jirui and Nie, Zaiqing},
-    booktitle={IEEE/CVF Conf.~on Computer Vision and Pattern Recognition (CVPR)},
-    month = jun,
-    year={2022}
+@inproceedings{yu2023v2x,
+  title={V2X-Seq: A large-scale sequential dataset for vehicle-infrastructure cooperative perception and forecasting},
+  author={Yu, Haibao and Yang, Wenxian and Ruan, Hongzhi and Yang, Zhenwei and Tang, Yingjuan and Gao, Xu and Hao, Xin and Shi, Yifeng and Pan, Yifeng and Sun, Ning and Song, Juan and Yuan, Jirui and Luo, Ping and Nie, Zaiqing},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={},
+  year={2023}
+}
+```
+
+
+```
+@inproceedings{yu2022dair,
+  title={Dair-v2x: A large-scale dataset for vehicle-infrastructure cooperative 3d object detection},
+  author={Yu, Haibao and Luo, Yizhen and Shu, Mao and Huo, Yiyi and Yang, Zebang and Shi, Yifeng and Guo, Zhenglong and Li, Hanyu and Hu, Xing and Yuan, Jirui and others},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={21361--21370},
+  year={2022}
 }
 ```
 

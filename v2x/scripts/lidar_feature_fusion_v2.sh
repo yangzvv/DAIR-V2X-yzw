@@ -1,5 +1,5 @@
-FFNet_workdir='/home/yuhaibao/FFNet-VIC3D'
-DATA=${FFNet_workdir}'/data/dair-v2x/DAIR-V2X/cooperative-vehicle-infrastructure'
+FFNet_workdir=$2
+DATA='../data/dair-v2x/DAIR-V2X/cooperative-vehicle-infrastructure'
 SPLIT=val
 SPLIT_DATA_PATH="../data/split_datas/cooperative-split-data.json"
 OUTPUT="../cache/vic-feature-fusion-baseline"
@@ -11,7 +11,7 @@ python eval.py \
   --input $DATA \
   --output $OUTPUT \
   --model feature_fusion \
-  --dataset vic-sync \
+  --dataset vic-sync-v2 \
   --split $SPLIT \
   --split-data-path $SPLIT_DATA_PATH \
   --veh-config-path $VEHICLE_CONFIG_NAME \

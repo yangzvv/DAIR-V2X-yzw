@@ -275,25 +275,20 @@ class Coord_transformation(object):
 
         return output_point
 
-
 class Coord_transformation_v2(object):
     """
     coord_list=['Infrastructure_image','Infrastructure_camera','Infrastructure_lidar',
                         'world', 'Vehicle_image','Vehicle_camera','Vehicle_lidar',
                         'Vehicle_novatel']
-
     'Infrastructure_image' ->'Infrastructure_camera'->'Infrastructure_lidar'->'world'
                                                                                    ^
                                                                                    |
                           Vehicle_image'->'Vehicle_camera'->'Vehicle_lidar'->'Vehicle_novatel'
-
            Transformation                                   Function name
     infrastructure-lidar to world          ->      Coord_Infrastructure_lidar2world()
     vehicle-lidar to world                 ->      Coord_Vehicle_lidar2world()
     infrastructure-lidar to vehicle-lidar  ->      Coord_Infrastructure_lidar2Vehicle_lidar()
     world to vehicle-lidar                 ->      Coord_world2vehicel_lidar()
-
-
     Transformation equation
         a^p=a^R_b*P_b+a^P_b0
         reverse:  P_b=vers(a^R_b)a^p-vers(a^R_b)(a^P_b0)
@@ -474,7 +469,6 @@ class Coord_transformation_v2(object):
         output_point = np.dot(rotation, input_point).reshape(3, 1) + np.array(translation).reshape(3, 1)
 
         return output_point
-
 
 if __name__ == "__main__":
     rotation = [
