@@ -1,3 +1,4 @@
+import json
 import sys
 import os
 import os.path as osp
@@ -22,13 +23,18 @@ from models.model_utils import Channel
 
 
 def eval_vic(args, dataset, model, evaluator):
-    idx = -1
+    # idx = -1
+    list_check = []
     for VICFrame, label, filt in tqdm(dataset):
-        idx += 1
-        if idx % 10 != 0:
-            continue
+        # idx += 1
+        # if idx % 10 != 0:
+        #     continue
 
         veh_id = VICFrame.vehicle_frame().get("frame_id")
+        inf_id = VICFrame.infrastructure_frame().get("frame_id")
+
+        # if veh_id not in ["000871", "000872", "000873", "000874", "000876"]:
+        #     continue
 
         pred = model(
             VICFrame,
@@ -36,11 +42,21 @@ def eval_vic(args, dataset, model, evaluator):
             None if not hasattr(dataset, "prev_inf_frame") else dataset.prev_inf_frame,
         )
 
+        # dict_check = {}
+        # dict_check["veh_frame"] = veh_id
+        # dict_check["inf_frame"] = inf_id
+        # dict_check["prediction"] = pred["boxes_3d"].tolist()
+        # dict_check["label"] = label["boxes_3d"].tolist()
+        # list_check.append(dict_check)
+
         evaluator.add_frame(pred, label)
         pipe.flush()
         pred["label"] = label["boxes_3d"]
         pred["veh_id"] = veh_id
         save_pkl(pred, osp.join(args.output, "result", pred["veh_id"] + ".pkl"))
+
+    # with open("/data/yzw_data/dair_v2x_detection/DAIR-V2X/v2_check.json", "w") as dump_f:
+    #     json.dump(list_check, dump_f)
 
     evaluator.print_ap("3d")
     evaluator.print_ap("bev")

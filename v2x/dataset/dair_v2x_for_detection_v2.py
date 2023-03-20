@@ -113,6 +113,7 @@ class VICDatasetV2(DAIRV2XDataset):
     def __init__(self, path, args, split="train", sensortype="lidar", extended_range=None, val_data_path=""):
         super().__init__(path + "/cooperative", args, split, extended_range)
         self.path = path
+        print(path)
         self.inf_frame2info = build_frame_to_info(load_json(osp.join(path, "infrastructure-side/data_info.json")))
         self.veh_frame2info = build_frame_to_info(load_json(osp.join(path, "vehicle-side/data_info.json")))
 
